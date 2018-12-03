@@ -36,7 +36,7 @@ function onSquareClick(i) {
   squares[i].style.backgroundColor = "red";
 }
 
-function gameStartRed() {
+function gameStart() {
   console.log("gamestarting");
   game = true;
   wrapper()
