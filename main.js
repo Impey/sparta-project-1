@@ -4,6 +4,10 @@ let game = false;
 let clicks = [];
 let red = false;
 let green = false;
+let mouseIsDown = false;
+
+
+
 
 
 
@@ -14,26 +18,39 @@ squares[0].addEventListener("click", () => {
   gameStart();
   console.log("Red started")
   red = true;
+  green = false;
 });
 
 squares[3].addEventListener("click", () => {
   gameStart();
   console.log("Green started")
   green = true;
-
+  red = false;
 })
 
 function settingBoard() {
+
   for (let i = 0; i < squares.length; i++) {
     if (game == true) {
       squares[i].getAttribute("data-num")
       squares[i].setAttribute("class", "");
-      squares[i].addEventListener("click", () => {
-        onSquareClick(i)
-      });
+
+      squares[i].addEventListener('mousedown', function () { mouseIsDown = true })
+      squares[i].addEventListener('mouseup', function () { mouseIsDown = false })
+      squares[i].addEventListener('mousemove', function () {
+        if (mouseIsDown) {
+          onSquareClick(i)
+          console.log("Hovering")
+        }
+      })
     }
   }
 }
+
+
+
+
+
 
 //Chooses colour of square click
 function onSquareClick(i) {
@@ -43,7 +60,6 @@ function onSquareClick(i) {
     squares[i].setAttribute("class", "X");
     squares[i].style.backgroundColor = "green";
   }
-
   if (red == true) {
     green = false;
     squares[i].setAttribute("class", "0");
@@ -64,6 +80,8 @@ function tellPos(p) {
 
 }
 addEventListener('mousemove', tellPos, false)
+
+
 
 
 
