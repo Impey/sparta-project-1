@@ -33,11 +33,6 @@ function settingBoard() {
         if (mouseIsDown) {
           onSquareClick(i)
           console.log("Hovering")
-
-          if (win == true) {
-            alert("Game is won")
-            resetBoard();
-          }
         }
       })
     }
@@ -58,8 +53,8 @@ function onSquareClick(i) {
     colSelected.innerHTML = "Red colour selected"
 
   }
-
   WinCon();
+
 }
 function gameStart() {
   console.log("gamestarting");
@@ -68,6 +63,14 @@ function gameStart() {
 
 }
 
+function WinCon() {
+  for (let i = 0; i < squares.length; i++) {
+    if (squares[0, 1, 2, 4, 5, 6, 8, 9, 10].className == "0") {
+      alert("Level Complete")
+      resetBoard();
+    }
+  }
+}
 
 btnReset.addEventListener("click", () => {
   resetBoard();
@@ -78,18 +81,12 @@ function resetBoard() {
   for (let i = 0; i < squares.length; i++) {
     squares[parseInt(i)].setAttribute("class", "clear");
     squares[i].style.backgroundColor = "white";
+    mouseIsDown = false;
     game = false;
   }
 
 }
 
-function WinCon() {
-  for (let i = 0; i < squares.length; i++) {
-    if (squares[0, 1, 2, 4, 5, 6, 8, 9, 10].className == "0" && squares[3, 7, 11].className == "X") {
-      win = true;
-    }
-  }
-}
 
 // Creating function that will tell the position of cursor
 // PageX and PageY will getting position values and show them in P
