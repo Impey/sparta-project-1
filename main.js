@@ -7,6 +7,10 @@ let game = false;
 let red = false;
 let green = false;
 let win = false;
+const winCon = [
+  [0, 1, 2, 4, 5, 6, 8, 9, 10], // red win
+  [3, 7, 11]// green win 
+]
 // Start points 
 squares[0].addEventListener("click", () => {
   gameStart();
@@ -65,10 +69,7 @@ function gameStart() {
 
 function WinCon() {
   for (let i = 0; i < squares.length; i++) {
-    if (squares[0, 1, 2, 4, 5, 6, 8, 9, 10].className == "0") {
-      alert("Level Complete")
-      resetBoard();
-    }
+
   }
 }
 
