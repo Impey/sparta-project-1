@@ -5,16 +5,19 @@ table {
 }
 td {
   border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   text-align: center;
   
+}
+button{
+  font: 100px;
 }
 
 .X {
   background-color: green;
 }
-.O {
+.red{
   background-color:red;
 
 }
