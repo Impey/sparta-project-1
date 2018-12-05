@@ -16,6 +16,7 @@ let yellow = false;
 let lightBlue = false;
 let red = false;
 let blue = false;
+let orange = false;
 //*****************************************************//
 // MODIFIED TO ADD EXPECTED COLOUR AS STARTING ELEMENT 
 // NOTE MUST MATCH CLASS IN CSS FILE //
@@ -98,6 +99,7 @@ squares[14].addEventListener("click", () => {
   yellow = false;
   green = false;
   blue = false;
+  orange = false;
 });
 squares[20].addEventListener("click", () => {
   console.log("red")
@@ -106,6 +108,7 @@ squares[20].addEventListener("click", () => {
   yellow = false;
   green = false;
   blue = false;
+  orange = false;
 });
 //orange start points
 squares[26].addEventListener("click", () => {
@@ -207,8 +210,36 @@ function onSquareClick(i) {
 }
 // Starts the game state
 function gameStart() {
+  //start points for green
   squares[0].style.background = "green"
   squares[24].style.background = "green"
+  squares[0].setAttribute("class", "green");
+  squares[24].setAttribute("class", "green");
+  //start points for Yellow
+  squares[1].style.background = "yellow"
+  squares[30].style.background = "yellow"
+  squares[1].setAttribute("class", "yellow");
+  squares[30].setAttribute("class", "yellow");
+  // start points for  light blue
+  squares[2].style.background = "lightblue"
+  squares[14].style.background = "lightblue"
+  squares[2].setAttribute("class", "lightblue");
+  squares[14].setAttribute("class", "lightblue");
+  //start points for red
+  squares[4].style.background = "red"
+  squares[20].style.background = "red"
+  squares[4].setAttribute("class", "red");
+  squares[20].setAttribute("class", "red");
+  // start points for orange
+  squares[10].style.background = "orange"
+  squares[26].style.background = "orange"
+  squares[10].setAttribute("class", "orange");
+  squares[26].setAttribute("class", "orange");
+  // start point for blue
+  squares[5].style.background = "blue"
+  squares[32].style.background = "blue"
+  squares[5].setAttribute("class", "blue");
+  squares[32].setAttribute("class", "blue");
 
 
   for (let i = 0; i < squares.length; i++) {
