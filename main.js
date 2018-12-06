@@ -1,9 +1,6 @@
 const squares = document.getElementsByTagName("td")
 let info = document.getElementById('info');
 const btnReset = document.getElementById("resetBtn");
-//*****************************************************//
-// ADDED A BUTTON TO FOCE THE CHECK //
-//*****************************************************//
 const btnCheck = document.getElementById("checkBtn");
 const colSelected = document.getElementById("colSelected")
 let mouseIsDown = false;
@@ -22,12 +19,12 @@ let orange = false;
 // NOTE MUST MATCH CLASS IN CSS FILE //
 //****************************************************//
 const winCon = [
-  ["green", 0, 6, 12, 18, 24],// green win 
-  ["yellow", 1, 7, 13, 19, 25, 31, 30],// yellow win
-  ["lightblue", 2, 8, 14], //Light blue win
-  ["red", 20, 21, 15, 9, 3, 4], //Red win
-  ["orange", 26, 27, 28, 22, 16, 10],// oragne win 
-  ["blue", 5, 11, 17, 23, 29, 35, 34, 33, 32]//blue win
+  ["green", 6, 12, 18],// green win 
+  ["yellow", 7, 13, 19, 25, 31],// yellow win
+  ["lightblue", 8], //Light blue win
+  ["red", 21, 15, 9, 3], //Red win
+  ["orange", 27, 28, 22, 16],// oragne win 
+  ["blue", 11, 17, 23, 29, 35, 34, 33]//blue win
 
 ]
 
@@ -92,7 +89,7 @@ squares[14].addEventListener("click", () => {
   blue = false;
 });
 //Red Start points
-squares[14].addEventListener("click", () => {
+squares[4].addEventListener("click", () => {
   console.log("red")
   red = true;
   lightBlue = false;
@@ -171,6 +168,20 @@ function settingBoard() {
 //Changes the colour of boxs that are hovered over whislt mouse click is down 
 function onSquareClick(i) {
 
+
+  squares[0].style.background = "green";
+  squares[24].style.background = "green"
+  squares[1].style.background = "yellow"
+  squares[30].style.background = "yellow"
+  squares[2].style.background = "lightblue"
+  squares[14].style.background = "lightblue"
+  squares[4].style.background = "red"
+  squares[20].style.background = "red"
+  squares[10].style.background = "orange"
+  squares[26].style.background = "orange"
+  squares[5].style.background = "blue"
+  squares[32].style.background = "blue"
+
   if (green == true) {
     squares[i].setAttribute("class", "green");
     squares[i].style.backgroundColor = "green";
@@ -192,6 +203,7 @@ function onSquareClick(i) {
     squares[i].setAttribute("class", "red");
     squares[i].style.backgroundColor = "red";
     colSelected.innerHTML = "Red selected"
+
   }
   if (orange == true) {
     squares[i].setAttribute("class", "orange");
@@ -211,7 +223,7 @@ function onSquareClick(i) {
 // Starts the game state
 function gameStart() {
   //start points for green
-  squares[0].style.background = "green"
+  squares[0].style.background = "green";
   squares[24].style.background = "green"
   squares[0].setAttribute("class", "green");
   squares[24].setAttribute("class", "green");
@@ -304,16 +316,16 @@ addEventListener('mousemove', tellPos, false)
 
 
 
+// not overriding starting points
+// start page, instructions, game page
+// onclick colour check 
+// when colour checked - change the text first
+// lets add one hardcoded level
+// -> v2.0.0
+// highlighting current colour using positionX and positionY - on box
 
+// end of sprint 2
+// automatically generated levels + obstacles/less colours
 
-
-
-
-
-
-
-
-
-
-
-
+// sprint 3
+// pipes
