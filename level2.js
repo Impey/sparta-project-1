@@ -20,16 +20,16 @@ let startPoint = false;
 // NOTE MUST MATCH CLASS IN CSS FILE //
 //****************************************************//
 const winCon = [
-  ["green", 6, 12, 18],// green win 
-  ["yellow", 7, 13, 19, 25, 31],// yellow win
-  ["lightblue", 8], //Light blue win
-  ["red", 21, 15, 9, 3], //Red win
-  ["orange", 27, 28, 22, 16],// oragne win 
-  ["blue", 11, 17, 23, 29, 35, 34, 33]//blue win
+  ["green", 31],// green win 
+  ["yellow", 33],// yellow win
+  ["lightblue", 41, 34, 27, 26], //Light blue win
+  ["red", 20, 19, 18, 17, 16, 23, 22, 29, 36, 37, 38], //Red win
+  ["orange", 11, 10, 9, 8],// oragne win 
+  ["blue", 5, 4, 3, 2, 1, 0, 7, 14, 21, 28, 35, 42, 43, 44, 45, 46]//blue win
 ]
 gameStart();
 // Green Start points
-squares[0].addEventListener("mousedown", () => {
+squares[24].addEventListener("mousedown", () => {
   console.log("Green")
   green = true;
   yellow = false;
@@ -38,7 +38,7 @@ squares[0].addEventListener("mousedown", () => {
   orange = false;
   blue = false;
 });
-squares[24].addEventListener("click", () => {
+squares[30].addEventListener("click", () => {
   console.log("Green")
   green = true;
   yellow = false;
@@ -48,7 +48,7 @@ squares[24].addEventListener("click", () => {
   blue = false;
 });
 //Yellow start points/////////////////////////////
-squares[1].addEventListener("mousedown", () => {//
+squares[32].addEventListener("mousedown", () => {//
   console.log("yellow")//
   yellow = true;///
   green = false;//
@@ -58,7 +58,7 @@ squares[1].addEventListener("mousedown", () => {//
   blue = false;
 });//
 //
-squares[30].addEventListener("click", () => {
+squares[40].addEventListener("click", () => {
   console.log("yellow")
   yellow = true;
   green = false;
@@ -68,16 +68,16 @@ squares[30].addEventListener("click", () => {
   blue = false;
 });
 //Light Blue start points
-squares[2].addEventListener("click", () => {
+squares[25].addEventListener("click", () => {
   console.log("light blue")
-  squares[2].style.backgroundColor = "lightblue";
+
   lightBlue = true;
   yellow = false;
   green = false;
   red = false;
   blue = false;
 });
-squares[14].addEventListener("click", () => {
+squares[48].addEventListener("click", () => {
   console.log("light bue")
   lightBlue = true;
   yellow = false;
@@ -86,7 +86,7 @@ squares[14].addEventListener("click", () => {
   blue = false;
 });
 //Red Start points
-squares[4].addEventListener("click", () => {
+squares[13].addEventListener("click", () => {
   console.log("red")
   red = true;
   lightBlue = false;
@@ -95,7 +95,7 @@ squares[4].addEventListener("click", () => {
   blue = false;
   orange = false;
 });
-squares[20].addEventListener("click", () => {
+squares[39].addEventListener("click", () => {
   console.log("red")
   red = true;
   lightBlue = false;
@@ -105,7 +105,7 @@ squares[20].addEventListener("click", () => {
   orange = false;
 });
 //orange start points
-squares[26].addEventListener("click", () => {
+squares[12].addEventListener("click", () => {
   console.log("orange")
   orange = true;
   red = false;
@@ -114,7 +114,7 @@ squares[26].addEventListener("click", () => {
   green = false;
   blue = false;
 });
-squares[10].addEventListener("click", () => {
+squares[15].addEventListener("click", () => {
   console.log("orange")
   orange = true;
   red = false;
@@ -124,7 +124,7 @@ squares[10].addEventListener("click", () => {
   blue = false;
 });
 //blue start points
-squares[5].addEventListener("click", () => {
+squares[6].addEventListener("click", () => {
   console.log("blue")
   blue = true;
   orange = false;
@@ -133,7 +133,7 @@ squares[5].addEventListener("click", () => {
   yellow = false;
   green = false;
 });
-squares[32].addEventListener("click", () => {
+squares[47].addEventListener("click", () => {
   console.log("blue")
   blue = true;
   orange = false;
@@ -207,35 +207,35 @@ function onSquareClick(i) {
 // Starts the game state
 function gameStart() {
   //start points for green
-  squares[0].style.background = "green";
-  squares[24].style.background = "green"
-  squares[0].setAttribute("class", "startClass");
+  squares[24].style.background = "green";
+  squares[30].style.background = "green"
   squares[24].setAttribute("class", "startClass");
-  //start points for Yellow
-  squares[1].style.background = "yellow"
-  squares[30].style.background = "yellow"
-  squares[1].setAttribute("class", "startClass");
   squares[30].setAttribute("class", "startClass");
-  // start points for  light blue
-  squares[2].style.background = "lightblue"
-  squares[14].style.background = "lightblue"
-  squares[2].setAttribute("class", "startClass");
-  squares[14].setAttribute("class", "startClass");
-  //start points for red
-  squares[4].style.background = "red"
-  squares[20].style.background = "red"
-  squares[4].setAttribute("class", "startClass");
-  squares[20].setAttribute("class", "startClass");
-  // start points for orange
-  squares[10].style.background = "orange"
-  squares[26].style.background = "orange"
-  squares[10].setAttribute("class", "startClass");
-  squares[26].setAttribute("class", "startClass");
-  // start point for blue
-  squares[5].style.background = "blue"
-  squares[32].style.background = "blue"
-  squares[5].setAttribute("class", "startClass");
+  //start points for Yellow
+  squares[32].style.background = "yellow"
+  squares[40].style.background = "yellow"
   squares[32].setAttribute("class", "startClass");
+  squares[40].setAttribute("class", "startClass");
+  // start points for  light blue
+  squares[25].style.background = "lightblue"
+  squares[48].style.background = "lightblue"
+  squares[25].setAttribute("class", "startClass");
+  squares[48].setAttribute("class", "startClass");
+  //start points for red
+  squares[13].style.background = "red"
+  squares[39].style.background = "red"
+  squares[13].setAttribute("class", "startClass");
+  squares[39].setAttribute("class", "startClass");
+  // start points for orange
+  squares[12].style.background = "orange"
+  squares[15].style.background = "orange"
+  squares[12].setAttribute("class", "startClass");
+  squares[15].setAttribute("class", "startClass");
+  // start point for blue
+  squares[6].style.background = "blue"
+  squares[47].style.background = "blue"
+  squares[6].setAttribute("class", "startClass");
+  squares[47].setAttribute("class", "startClass");
   // for (let i = 0; i < squares.length; i++) {
   //   squares[i].setAttribute("class", "clear");
   // }

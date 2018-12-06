@@ -20,11 +20,19 @@ button{
 .menu {
   color: white;
   text-align: center;
-  margin-top: 175px;
+  margin-top: 125px;
+}
+.menu2 {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
 }
 .menu p:hover{
  color: red;
 }
+.menu2 a p:hover{
+  color: red;
+ }
 
 .X {
   background-color: green;
@@ -32,6 +40,17 @@ button{
 .red{
   background-color:red;
 
+}
+.back{
+  position:absolute;
+  border-top:0;
+  left:0;
+  padding:10px;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
 }
 
 .clear {
@@ -55,6 +74,11 @@ button{
 #reset:hover{
   background: white;
   color: black;
+}
+.howToImg{
+  height: 300px;
+  width: 250px;
+  padding: 30px;
 }
 
 
