@@ -34,6 +34,20 @@ button{
   color: red;
  }
 
+  
+  a p:hover{
+  color: red;
+ }
+
+ .backBtn{
+   float:left;
+   color: white;
+ }
+ .nextBtn{
+   float: right;
+   color: white;
+   padding-right: 30px;
+ }
 .X {
   background-color: green;
 }
@@ -52,6 +66,7 @@ a{
   text-decoration: none;
   color: inherit;
 }
+
 
 .clear {
   background: white;
