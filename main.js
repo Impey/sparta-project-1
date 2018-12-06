@@ -6,7 +6,7 @@ const colSelected = document.getElementById("colSelected")
 let mouseIsDown = false;
 let game = false;
 let win = false;
-let clicks = []
+
 //color Booleans values
 let green = false;
 let yellow = false;
@@ -14,6 +14,7 @@ let lightBlue = false;
 let red = false;
 let blue = false;
 let orange = false;
+let startPoint = false;
 //*****************************************************//
 // MODIFIED TO ADD EXPECTED COLOUR AS STARTING ELEMENT 
 // NOTE MUST MATCH CLASS IN CSS FILE //
@@ -25,12 +26,8 @@ const winCon = [
   ["red", 21, 15, 9, 3], //Red win
   ["orange", 27, 28, 22, 16],// oragne win 
   ["blue", 11, 17, 23, 29, 35, 34, 33]//blue win
-
 ]
-
-
 gameStart();
-
 // Green Start points
 squares[0].addEventListener("mousedown", () => {
   console.log("Green")
@@ -152,12 +149,14 @@ function settingBoard() {
   for (let i = 0; i < squares.length; i++) {
     if (game == true) {
       squares[i].getAttribute("data-num")
-      squares[i].setAttribute("class", "");
+      //squares[i].setAttribute("class", "");
       squares[i].addEventListener('mousedown', function () { mouseIsDown = true })
       squares[i].addEventListener('mouseup', function () { mouseIsDown = false })
       squares[i].addEventListener('mousemove', function () {
-
-        if (mouseIsDown) {
+        if (squares[i].getAttribute("class") === "startClass") {
+          console.log("dont draw")
+        }
+        else if (mouseIsDown) {
           onSquareClick(i)
 
         }
@@ -169,18 +168,7 @@ function settingBoard() {
 function onSquareClick(i) {
 
 
-  squares[0].style.background = "green";
-  squares[24].style.background = "green"
-  squares[1].style.background = "yellow"
-  squares[30].style.background = "yellow"
-  squares[2].style.background = "lightblue"
-  squares[14].style.background = "lightblue"
-  squares[4].style.background = "red"
-  squares[20].style.background = "red"
-  squares[10].style.background = "orange"
-  squares[26].style.background = "orange"
-  squares[5].style.background = "blue"
-  squares[32].style.background = "blue"
+
 
   if (green == true) {
     squares[i].setAttribute("class", "green");
@@ -215,48 +203,42 @@ function onSquareClick(i) {
     squares[i].style.backgroundColor = "blue";
     colSelected.innerHTML = "Blue selected"
   }
-
-
-
-
 }
 // Starts the game state
 function gameStart() {
   //start points for green
   squares[0].style.background = "green";
   squares[24].style.background = "green"
-  squares[0].setAttribute("class", "green");
-  squares[24].setAttribute("class", "green");
+  squares[0].setAttribute("class", "startClass");
+  squares[24].setAttribute("class", "startClass");
   //start points for Yellow
   squares[1].style.background = "yellow"
   squares[30].style.background = "yellow"
-  squares[1].setAttribute("class", "yellow");
-  squares[30].setAttribute("class", "yellow");
+  squares[1].setAttribute("class", "startClass");
+  squares[30].setAttribute("class", "startClass");
   // start points for  light blue
   squares[2].style.background = "lightblue"
   squares[14].style.background = "lightblue"
-  squares[2].setAttribute("class", "lightblue");
-  squares[14].setAttribute("class", "lightblue");
+  squares[2].setAttribute("class", "startClass");
+  squares[14].setAttribute("class", "startClass");
   //start points for red
   squares[4].style.background = "red"
   squares[20].style.background = "red"
-  squares[4].setAttribute("class", "red");
-  squares[20].setAttribute("class", "red");
+  squares[4].setAttribute("class", "startClass");
+  squares[20].setAttribute("class", "startClass");
   // start points for orange
   squares[10].style.background = "orange"
   squares[26].style.background = "orange"
-  squares[10].setAttribute("class", "orange");
-  squares[26].setAttribute("class", "orange");
+  squares[10].setAttribute("class", "startClass");
+  squares[26].setAttribute("class", "startClass");
   // start point for blue
   squares[5].style.background = "blue"
   squares[32].style.background = "blue"
-  squares[5].setAttribute("class", "blue");
-  squares[32].setAttribute("class", "blue");
-
-
-  for (let i = 0; i < squares.length; i++) {
-    squares[i].setAttribute("class", "clear");
-  }
+  squares[5].setAttribute("class", "startClass");
+  squares[32].setAttribute("class", "startClass");
+  // for (let i = 0; i < squares.length; i++) {
+  //   squares[i].setAttribute("class", "clear");
+  // }
   game = true;
   settingBoard()
 }
@@ -303,8 +285,6 @@ function resetBoard() {
   }
 
 }
-
-
 // Creating function that will tell the position of cursor
 // PageX and PageY will getting position values and show them in P
 function tellPos(p) {
