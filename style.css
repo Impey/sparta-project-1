@@ -17,6 +17,14 @@ td {
 button{
   font: 100px;
 }
+.menu {
+  color: white;
+  text-align: center;
+  margin-top: 175px;
+}
+.menu p:hover{
+ color: red;
+}
 
 .X {
   background-color: green;

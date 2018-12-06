@@ -265,9 +265,6 @@ function WinCondition() {
   alert("Good Job"); //If completes with no error, reward!
 }
 
-
-
-
 //Button to reset the board 
 btnReset.addEventListener("click", () => {
   resetBoard();
