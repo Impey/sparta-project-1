@@ -236,9 +236,7 @@ function gameStart() {
   squares[32].style.background = "blue"
   squares[5].setAttribute("class", "startClass");
   squares[32].setAttribute("class", "startClass");
-  // for (let i = 0; i < squares.length; i++) {
-  //   squares[i].setAttribute("class", "clear");
-  // }
+
   game = true;
   settingBoard()
 }
