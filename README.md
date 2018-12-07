@@ -12,8 +12,8 @@ I made a connect the dot puzzle game where in order to beat the level you need t
 2. Once the repo is cloned open the files and run the index.html
 3. You will now be able to play the game!
 
-(If its hosted on Github Pages then...)
-#### You can view the page [here]()
+
+#### You can view the page [https://impey.github.io/sparta-project-1/]()
 
 ### Challenges (you can include images and code block here)
 1. The winning condition is the main challenge I faced during the past week in order to overcome if i had to get the help of a friend to understand the logc but it was overcome in the end.
