@@ -49,15 +49,15 @@ squares[30].addEventListener("click", () => {
 });
 //Yellow start points/////////////////////////////
 squares[32].addEventListener("mousedown", () => {//
-  console.log("yellow")//
-  yellow = true;///
-  green = false;//
-  lightBlue = false;//
-  red = false;//
+  console.log("yellow")
+  yellow = true;
+  green = false;
+  lightBlue = false;
+  red = false;
   oragne = false;
   blue = false;
-});//
-//
+});
+
 squares[40].addEventListener("click", () => {
   console.log("yellow")
   yellow = true;
@@ -144,6 +144,7 @@ squares[47].addEventListener("click", () => {
 });
 
 
+//Handles the on Mouse down click drawing
 
 function settingBoard() {
   for (let i = 0; i < squares.length; i++) {
@@ -166,9 +167,6 @@ function settingBoard() {
 }
 //Changes the colour of boxs that are hovered over whislt mouse click is down 
 function onSquareClick(i) {
-
-
-
 
   if (green == true) {
     squares[i].setAttribute("class", "green");
@@ -236,9 +234,6 @@ function gameStart() {
   squares[47].style.background = "blue"
   squares[6].setAttribute("class", "startClass");
   squares[47].setAttribute("class", "startClass");
-  // for (let i = 0; i < squares.length; i++) {
-  //   squares[i].setAttribute("class", "clear");
-  // }
   game = true;
   settingBoard()
 }
@@ -294,16 +289,6 @@ addEventListener('mousemove', tellPos, false)
 
 
 
-// not overriding starting points
-// start page, instructions, game page
-// onclick colour check 
-// when colour checked - change the text first
-// lets add one hardcoded level
-// -> v2.0.0
-// highlighting current colour using positionX and positionY - on box
 
-// end of sprint 2
-// automatically generated levels + obstacles/less colours
 
-// sprint 3
-// pipes
+

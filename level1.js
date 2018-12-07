@@ -47,17 +47,17 @@ squares[24].addEventListener("click", () => {
   orange = false;
   blue = false;
 });
-//Yellow start points/////////////////////////////
-squares[1].addEventListener("mousedown", () => {//
-  console.log("yellow")//
-  yellow = true;///
-  green = false;//
-  lightBlue = false;//
-  red = false;//
+//Yellow start points
+squares[1].addEventListener("mousedown", () => {
+  console.log("yellow")
+  yellow = true;
+  green = false;
+  lightBlue = false;
+  red = false;
   oragne = false;
   blue = false;
-});//
-//
+});
+
 squares[30].addEventListener("click", () => {
   console.log("yellow")
   yellow = true;
@@ -267,9 +267,7 @@ function WinCondition() {
 
 //Button to reset the board 
 btnReset.addEventListener("click", () => {
-
   location.reload();
-
 })
 
 function resetBoard() {
@@ -294,16 +292,3 @@ addEventListener('mousemove', tellPos, false)
 
 
 
-// not overriding starting points
-// start page, instructions, game page
-// onclick colour check 
-// when colour checked - change the text first
-// lets add one hardcoded level
-// -> v2.0.0
-// highlighting current colour using positionX and positionY - on box
-
-// end of sprint 2
-// automatically generated levels + obstacles/less colours
-
-// sprint 3
-// pipes

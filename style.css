@@ -38,6 +38,9 @@ button{
   a p:hover{
   color: red;
  }
+ .wrapper {
+  text-align: center;
+}
 
  .backBtn{
    float:left;
