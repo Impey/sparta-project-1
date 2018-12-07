@@ -1,0 +1,102 @@
+body { 
+  font-family: 'Helvetica';
+background-color: rgb(8, 6, 6);
+}
+table {
+  margin: 0 auto;
+  border-radius:10px;
+}
+td {
+  border: 1px solid white;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  border-radius: 25%;
+  
+}
+button{
+  font: 100px;
+}
+.menu {
+  color: white;
+  text-align: center;
+  margin-top: 125px;
+}
+.menu2 {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+.menu p:hover{
+ color: red;
+}
+.menu2 a p:hover{
+  color: red;
+ }
+
+  
+  a p:hover{
+  color: red;
+ }
+ .wrapper {
+  text-align: center;
+}
+
+ .backBtn{
+   float:left;
+   color: white;
+ }
+ .nextBtn{
+   float: right;
+   color: white;
+   padding-right: 30px;
+ }
+.X {
+  background-color: green;
+}
+.red{
+  background-color:red;
+
+}
+.back{
+  position:absolute;
+  border-top:0;
+  left:0;
+  padding:10px;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.clear {
+  background: white;
+}
+.col{
+  text-align: center;
+}
+
+#reset {
+  padding: 5px;
+  width: 100px;
+  font-size: 1.5em;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+}
+
+#reset:hover{
+  background: white;
+  color: black;
+}
+.howToImg{
+  height: 300px;
+  width: 250px;
+  padding: 30px;
+}
+
+
