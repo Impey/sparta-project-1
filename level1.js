@@ -30,7 +30,7 @@ const winCon = [
 gameStart();
 // Green Start points
 squares[0].addEventListener("mousedown", () => {
-  console.log("Green")
+  // console.log("Green")
   green = true;
   yellow = false;
   lightBlue = false;
@@ -39,7 +39,7 @@ squares[0].addEventListener("mousedown", () => {
   blue = false;
 });
 squares[24].addEventListener("click", () => {
-  console.log("Green")
+  // console.log("Green")
   green = true;
   yellow = false;
   lightBlue = false;
@@ -49,7 +49,7 @@ squares[24].addEventListener("click", () => {
 });
 //Yellow start points
 squares[1].addEventListener("mousedown", () => {
-  console.log("yellow")
+  // console.log("yellow")
   yellow = true;
   green = false;
   lightBlue = false;
@@ -59,7 +59,7 @@ squares[1].addEventListener("mousedown", () => {
 });
 
 squares[30].addEventListener("click", () => {
-  console.log("yellow")
+  // console.log("yellow")
   yellow = true;
   green = false;
   lightBlue = false;
@@ -69,7 +69,7 @@ squares[30].addEventListener("click", () => {
 });
 //Light Blue start points
 squares[2].addEventListener("click", () => {
-  console.log("light blue")
+  // console.log("light blue")
   squares[2].style.backgroundColor = "lightblue";
   lightBlue = true;
   yellow = false;
@@ -78,7 +78,7 @@ squares[2].addEventListener("click", () => {
   blue = false;
 });
 squares[14].addEventListener("click", () => {
-  console.log("light bue")
+  // console.log("light bue")
   lightBlue = true;
   yellow = false;
   green = false;
@@ -87,7 +87,7 @@ squares[14].addEventListener("click", () => {
 });
 //Red Start points
 squares[4].addEventListener("click", () => {
-  console.log("red")
+  // console.log("red")
   red = true;
   lightBlue = false;
   yellow = false;
@@ -96,7 +96,7 @@ squares[4].addEventListener("click", () => {
   orange = false;
 });
 squares[20].addEventListener("click", () => {
-  console.log("red")
+  // console.log("red")
   red = true;
   lightBlue = false;
   yellow = false;
@@ -106,7 +106,7 @@ squares[20].addEventListener("click", () => {
 });
 //orange start points
 squares[26].addEventListener("click", () => {
-  console.log("orange")
+  // console.log("orange")
   orange = true;
   red = false;
   lightBlue = false;
@@ -115,7 +115,7 @@ squares[26].addEventListener("click", () => {
   blue = false;
 });
 squares[10].addEventListener("click", () => {
-  console.log("orange")
+  // console.log("orange")
   orange = true;
   red = false;
   lightBlue = false;
@@ -125,7 +125,7 @@ squares[10].addEventListener("click", () => {
 });
 //blue start points
 squares[5].addEventListener("click", () => {
-  console.log("blue")
+  // console.log("blue")
   blue = true;
   orange = false;
   red = false;
@@ -134,7 +134,7 @@ squares[5].addEventListener("click", () => {
   green = false;
 });
 squares[32].addEventListener("click", () => {
-  console.log("blue")
+  // console.log("blue")
   blue = true;
   orange = false;
   red = false;
@@ -154,10 +154,11 @@ function settingBoard() {
       squares[i].addEventListener('mouseup', function () { mouseIsDown = false })
       squares[i].addEventListener('mousemove', function () {
         if (squares[i].getAttribute("class") === "startClass") {
-          console.log("dont draw")
+          // console.log("dont draw")
         }
         else if (mouseIsDown) {
           onSquareClick(i)
+          WinCondition();
 
         }
       })
@@ -252,10 +253,12 @@ btnCheck.addEventListener("click", () => {
 //****************************************************//
 function WinCondition() {
   for (let i = 0; i < winCon.length; i++) { //Iterate through colours
-    for (let j = 1; j < winCon[i].length; j++) { //Iterate through squares that make up colour, starting at element 1 as element 0 is the colour
-      let winConColour = winCon[i][0]; //Get the first element, the name of the class we expect.
+   for (let j = 1; j < winCon[i].length; j++) { //Iterate through squares that make up colour, starting at element 1 as element 0 is the colour
+    let winConColour = winCon[i][0]; //Get the first element, the name of the class we expect.
+    console.log(winCon[i][j]);
+    // console.log(winConColour);
       if (squares[winCon[i][j]].getAttribute("class") !== winConColour) { //Check the squares class is the class written at the start.
-        alert("incorrect tile expected: " + winConColour + " Got: " + squares[winCon[i][j]].getAttribute("class")); //if not vomit an error and break.
+        
         return;
       }
     }
@@ -279,13 +282,13 @@ function resetBoard() {
   }
 
 }
-// Creating function that will tell the position of cursor
-// PageX and PageY will getting position values and show them in P
-function tellPos(p) {
-  info.innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
+// // Creating function that will tell the position of cursor
+// // PageX and PageY will getting position values and show them in P
+// function tellPos(p) {
+//   info.innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
 
-}
-addEventListener('mousemove', tellPos, false)
+// }
+// addEventListener('mousemove', tellPos, false)
 
 
 
