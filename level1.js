@@ -9,12 +9,12 @@ let game = false;
 let win = false;
 
 //color Booleans values
-let green = false;
-let yellow = false;
-let lightBlue = false;
-let red = false;
-let blue = false;
-let orange = false;
+let green;
+let yellow;
+let purple;
+let red;
+let blue;
+let orange;
 
 //*****************************************************//
 // MODIFIED TO ADD EXPECTED COLOUR AS STARTING ELEMENT 
@@ -23,7 +23,7 @@ let orange = false;
 const winCon = [
   ["green", 6, 12, 18],// green win 
   ["yellow", 7, 13, 19, 25, 31],// yellow win
-  ["lightblue", 8], //Light blue win
+  ["purple", 8], //Light blue win
   ["red", 21, 15, 9, 3], //Red win
   ["orange", 27, 28, 22, 16],// oragne win 
   ["blue", 11, 17, 23, 29, 35, 34, 33]//blue win
@@ -32,7 +32,7 @@ const winCon = [
 const startPoints = [
   ["green", 0, 24],
   ["yellow", 1, 30],
-  ["lightblue", 2, 14],
+  ["purple", 2, 14],
   ["red", 4, 20],
   ["orange", 10, 26],
   ["blue", 5, 32]
@@ -40,56 +40,58 @@ const startPoints = [
 gameStart();
 nextLevelChecker();
 
-function test(){
+function colourSelector(){
   for(let i=0; i < squares.length; i++){
   squares[i].addEventListener("click",() =>{
    if(squares[i].getAttribute("class")== "startClassgreen"){
      green = true;
      yellow = false;
-     lightBlue = false;
+     purple = false;
      red = false;
-     oragne = false;
      blue = false;
+     orange = false;
     }
     if(squares[i].getAttribute("class")== "startClassyellow"){
       green = false;
       yellow = true;
-      lightBlue = false;
+      purple = false;
       red = false;
-      oragne = false;
       blue = false;
+      orange = false;
+      
      }
-     if(squares[i].getAttribute("class")== "startClasslightblue"){
+     if(squares[i].getAttribute("class") ==  "startClasspurple"){
       green = false;
       yellow = false;
-      lightBlue = true;
+      purple = true;
       red = false;
-      oragne = false;
       blue = false;
+      orange = false;
      }
+  
      if(squares[i].getAttribute("class")== "startClassred"){
       green = false;
       yellow = false;
-      lightBlue = false;
+      purple = false;
       red = true;
-      oragne = false;
       blue = false;
+      orange = false;
      }
      if(squares[i].getAttribute("class")== "startClassblue"){
       green = false;
       yellow = false;
-      lightBlue = false;
+      purple = false;
       red = false;
-      oragne = false;
       blue = true;
+      orange = false;
      }
      if(squares[i].getAttribute("class")== "startClassorange"){
-      orange = true;
-      red = false;
-      lightBlue = false;
-      yellow = false;
       green = false;
+      yellow = false;
+      purple = false;
+      red = false;
       blue = false;
+      orange = true;
      }
     }
   )}
@@ -106,8 +108,8 @@ function settingBoard() {
            WinCondition();
           }
         else if (mouseIsDown) {
-          test()
           onSquareClick(i)
+          colourSelector()
         }
       })
     }
@@ -118,36 +120,34 @@ function onSquareClick(i) {
  if (green == true) {
     squares[i].setAttribute("class", "green");
     squares[i].style.backgroundColor = "green";
-    
-  }
-  if (yellow == true) {
+    }
 
+  if (yellow == true) {
     squares[i].setAttribute("class", "yellow");
     squares[i].style.backgroundColor = "yellow";
-    
-  }
+    }
+  
+  if (purple == true) {
+    squares[i].setAttribute("class", "purple");
+    squares[i].style.backgroundColor = "purple";
+    }
 
-  if (lightBlue == true) {
-    squares[i].setAttribute("class", "lightblue");
-    squares[i].style.backgroundColor = "lightblue";
-    
-  }
   if (red == true) {
     squares[i].setAttribute("class", "red");
     squares[i].style.backgroundColor = "red";
-    
   }
+
   if (orange == true) {
     squares[i].setAttribute("class", "orange");
     squares[i].style.backgroundColor = "orange";
-    
   }
+
   if (blue == true) {
     squares[i].setAttribute("class", "blue");
     squares[i].style.backgroundColor = "blue";
-    
-  }
+   }
 }
+
 // Starts the game state
 function gameStart() {
  game = true;
@@ -156,7 +156,7 @@ function gameStart() {
    for(let j = 1; j < startPoints[i].length; j++){
     let startPointColor = startPoints[i][0];
     squares[startPoints[i][j]].style.background = startPointColor;
-    squares[startPoints[i][j]].setAttribute("class","startClass"+startPointColor)
+    squares[startPoints[i][j]].setAttribute("class","startClass" + startPointColor)
    }
  }
 }
@@ -193,13 +193,3 @@ btnReset.addEventListener("click", () => {
   location.reload();
 })
 
-function resetBoard() {
-  for (let i = 0; i < squares.length; i++) {
-    squares[parseInt(i)].setAttribute("class", "clear");
-    squares[i].style.backgroundColor = "white";
-    colSelected.innerHTML = "";
-    mouseIsDown = false;
-    game = false;
-    win = false;
-  }
-}
