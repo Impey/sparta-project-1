@@ -3,18 +3,19 @@ let info = document.getElementById('info');
 const btnReset = document.getElementById("resetBtn");
 const btnCheck = document.getElementById("checkBtn");
 const colSelected = document.getElementById("colSelected")
+const nextBtn = document.getElementById("nextBtn");
 let mouseIsDown = false;
 let game = false;
 let win = false;
 
 //color Booleans values
-let green = false;
-let yellow = false;
-let lightBlue = false;
-let red = false;
-let blue = false;
-let orange = false;
-let startPoint = false;
+let green;
+let yellow;
+let purple;
+let red;
+let blue;
+let orange;
+
 //*****************************************************//
 // MODIFIED TO ADD EXPECTED COLOUR AS STARTING ELEMENT 
 // NOTE MUST MATCH CLASS IN CSS FILE //
@@ -22,144 +23,97 @@ let startPoint = false;
 const winCon = [
   ["green", 31],// green win 
   ["yellow", 33],// yellow win
-  ["lightblue", 41, 34, 27, 26], //Light blue win
+  ["purple", 41, 34, 27, 26], //Light blue win
   ["red", 20, 19, 18, 17, 16, 23, 22, 29, 36, 37, 38], //Red win
   ["orange", 11, 10, 9, 8],// oragne win 
   ["blue", 5, 4, 3, 2, 1, 0, 7, 14, 21, 28, 35, 42, 43, 44, 45, 46]//blue win
 ]
+
+const startPoints = [
+["green", 24, 30],
+["yellow", 32, 40],
+["purple", 25, 48],
+["red", 13, 39],
+["orange", 12, 15],
+["blue", 6, 47]
+]
+
 gameStart();
-// Green Start points
-squares[24].addEventListener("mousedown", () => {
-  console.log("Green")
-  green = true;
-  yellow = false;
-  lightBlue = false;
-  red = false;
-  orange = false;
-  blue = false;
-});
-squares[30].addEventListener("click", () => {
-  console.log("Green")
-  green = true;
-  yellow = false;
-  lightBlue = false;
-  red = false;
-  orange = false;
-  blue = false;
-});
-//Yellow start points/////////////////////////////
-squares[32].addEventListener("mousedown", () => {//
-  console.log("yellow")
-  yellow = true;
-  green = false;
-  lightBlue = false;
-  red = false;
-  oragne = false;
-  blue = false;
-});
+nextLevelChecker();
 
-squares[40].addEventListener("click", () => {
-  console.log("yellow")
-  yellow = true;
-  green = false;
-  lightBlue = false;
-  red = false;
-  oragne = false;
-  blue = false;
-});
-//Light Blue start points
-squares[25].addEventListener("click", () => {
-  console.log("light blue")
+function colourSelector(){
+  for(let i=0; i < squares.length; i++){
+  squares[i].addEventListener("click",() =>{
+    if(squares[i].getAttribute("class")== "startClassgreen"){
+     green = true;
+     yellow = false;
+     purple = false;
+     red = false;
+     blue = false;
+     orange = false;
+    }
 
-  lightBlue = true;
-  yellow = false;
-  green = false;
-  red = false;
-  blue = false;
-});
-squares[48].addEventListener("click", () => {
-  console.log("light bue")
-  lightBlue = true;
-  yellow = false;
-  green = false;
-  red = false;
-  blue = false;
-});
-//Red Start points
-squares[13].addEventListener("click", () => {
-  console.log("red")
-  red = true;
-  lightBlue = false;
-  yellow = false;
-  green = false;
-  blue = false;
-  orange = false;
-});
-squares[39].addEventListener("click", () => {
-  console.log("red")
-  red = true;
-  lightBlue = false;
-  yellow = false;
-  green = false;
-  blue = false;
-  orange = false;
-});
-//orange start points
-squares[12].addEventListener("click", () => {
-  console.log("orange")
-  orange = true;
-  red = false;
-  lightBlue = false;
-  yellow = false;
-  green = false;
-  blue = false;
-});
-squares[15].addEventListener("click", () => {
-  console.log("orange")
-  orange = true;
-  red = false;
-  lightBlue = false;
-  yellow = false;
-  green = false;
-  blue = false;
-});
-//blue start points
-squares[6].addEventListener("click", () => {
-  console.log("blue")
-  blue = true;
-  orange = false;
-  red = false;
-  lightBlue = false;
-  yellow = false;
-  green = false;
-});
-squares[47].addEventListener("click", () => {
-  console.log("blue")
-  blue = true;
-  orange = false;
-  red = false;
-  lightBlue = false;
-  yellow = false;
-  green = false;
-});
+    if(squares[i].getAttribute("class")== "startClassyellow"){
+      green = false;
+      yellow = true;
+      purple = false;
+      red = false;
+      blue = false;
+      orange = false;
+    }
 
+     if(squares[i].getAttribute("class") ==  "startClasspurple"){
+      green = false;
+      yellow = false;
+      purple = true;
+      red = false;
+      blue = false;
+      orange = false;
+     }
+  
+     if(squares[i].getAttribute("class")== "startClassred"){
+      green = false;
+      yellow = false;
+      purple = false;
+      red = true;
+      blue = false;
+      orange = false;
+     }
 
-//Handles the on Mouse down click drawing
+     if(squares[i].getAttribute("class")== "startClassblue"){
+      green = false;
+      yellow = false;
+      purple = false;
+      red = false;
+      blue = true;
+      orange = false;
+     }
+
+     if(squares[i].getAttribute("class")== "startClassorange"){
+      green = false;
+      yellow = false;
+      purple = false;
+      red = false;
+      blue = false;
+      orange = true;
+     }
+    }
+  )}
+}
 
 function settingBoard() {
   for (let i = 0; i < squares.length; i++) {
     if (game == true) {
       squares[i].getAttribute("data-num")
-      //squares[i].setAttribute("class", "");
       squares[i].addEventListener('mousedown', function () { mouseIsDown = true })
       squares[i].addEventListener('mouseup', function () { mouseIsDown = false })
       squares[i].addEventListener('mousemove', function () {
-        if (squares[i].getAttribute("class") === "startClass") {
-          console.log("dont draw")
-        }
+        if (squares[i].getAttribute("class").includes("startClass")) {
+           WinCondition();
+          }
         else if (mouseIsDown) {
           onSquareClick(i)
-
+          colourSelector()
         }
       })
     }
@@ -167,81 +121,49 @@ function settingBoard() {
 }
 //Changes the colour of boxs that are hovered over whislt mouse click is down 
 function onSquareClick(i) {
-
-  if (green == true) {
+ if (green == true) {
     squares[i].setAttribute("class", "green");
     squares[i].style.backgroundColor = "green";
-    colSelected.innerHTML = "Green colour selected"
-  }
-  if (yellow == true) {
+    }
 
+  if (yellow == true) {
     squares[i].setAttribute("class", "yellow");
     squares[i].style.backgroundColor = "yellow";
-    colSelected.innerHTML = "Yellow Selected"
-  }
+    }
+  
+  if (purple == true) {
+    squares[i].setAttribute("class", "purple");
+    squares[i].style.backgroundColor = "purple";
+    }
 
-  if (lightBlue == true) {
-    squares[i].setAttribute("class", "lightblue");
-    squares[i].style.backgroundColor = "lightblue";
-    colSelected.innerHTML = "Light Blue selected"
-  }
   if (red == true) {
     squares[i].setAttribute("class", "red");
     squares[i].style.backgroundColor = "red";
-    colSelected.innerHTML = "Red selected"
-
   }
+
   if (orange == true) {
     squares[i].setAttribute("class", "orange");
     squares[i].style.backgroundColor = "orange";
-    colSelected.innerHTML = "orange Selected"
   }
+
   if (blue == true) {
     squares[i].setAttribute("class", "blue");
     squares[i].style.backgroundColor = "blue";
-    colSelected.innerHTML = "Blue selected"
-  }
-}
-// Starts the game state
-function gameStart() {
-  //start points for green
-  squares[24].style.background = "green";
-  squares[30].style.background = "green"
-  squares[24].setAttribute("class", "startClass");
-  squares[30].setAttribute("class", "startClass");
-  //start points for Yellow
-  squares[32].style.background = "yellow"
-  squares[40].style.background = "yellow"
-  squares[32].setAttribute("class", "startClass");
-  squares[40].setAttribute("class", "startClass");
-  // start points for  light blue
-  squares[25].style.background = "lightblue"
-  squares[48].style.background = "lightblue"
-  squares[25].setAttribute("class", "startClass");
-  squares[48].setAttribute("class", "startClass");
-  //start points for red
-  squares[13].style.background = "red"
-  squares[39].style.background = "red"
-  squares[13].setAttribute("class", "startClass");
-  squares[39].setAttribute("class", "startClass");
-  // start points for orange
-  squares[12].style.background = "orange"
-  squares[15].style.background = "orange"
-  squares[12].setAttribute("class", "startClass");
-  squares[15].setAttribute("class", "startClass");
-  // start point for blue
-  squares[6].style.background = "blue"
-  squares[47].style.background = "blue"
-  squares[6].setAttribute("class", "startClass");
-  squares[47].setAttribute("class", "startClass");
-  game = true;
-  settingBoard()
+   }
 }
 
-//Button to check if player input is correct
-btnCheck.addEventListener("click", () => {
-  WinCondition();
-})
+// Starts the game state
+function gameStart() {
+ game = true;
+ settingBoard()
+ for(let i = 0; i < startPoints.length; i++){
+   for(let j = 1; j < startPoints[i].length; j++){
+    let startPointColor = startPoints[i][0];
+    squares[startPoints[i][j]].style.background = startPointColor;
+    squares[startPoints[i][j]].setAttribute("class","startClass" + startPointColor)
+   }
+ }
+}
 
 //****************************************************//
 // NEW WIN CONDITION MUCH MORE STREAMLINED
@@ -249,46 +171,28 @@ btnCheck.addEventListener("click", () => {
 //****************************************************//
 function WinCondition() {
   for (let i = 0; i < winCon.length; i++) { //Iterate through colours
-    for (let j = 1; j < winCon[i].length; j++) { //Iterate through squares that make up colour, starting at element 1 as element 0 is the colour
-      let winConColour = winCon[i][0]; //Get the first element, the name of the class we expect.
+   for (let j = 1; j < winCon[i].length; j++) { //Iterate through squares that make up colour, starting at element 1 as element 0 is the colour
+    let winConColour = winCon[i][0]; //Get the first element, the name of the class we expect.
+    // console.log(winConColour);
       if (squares[winCon[i][j]].getAttribute("class") !== winConColour) { //Check the squares class is the class written at the start.
-        alert("incorrect tile expected: " + winConColour + " Got: " + squares[winCon[i][j]].getAttribute("class")); //if not vomit an error and break.
-        return;
+         win = false;
+         console.log(win)
+         return;
       }
     }
   }
-  alert("Good Job"); //If completes with no error, reward!
+  win = true;
+  nextBtn.style.visibility ='visible'
+  return;
+}
+
+function nextLevelChecker(){
+ if(!win === true){
+   nextBtn.style.visibility ='hidden'
+ }
 }
 
 //Button to reset the board 
 btnReset.addEventListener("click", () => {
-
   location.reload();
-
 })
-
-function resetBoard() {
-  for (let i = 0; i < squares.length; i++) {
-    squares[parseInt(i)].setAttribute("class", "clear");
-    squares[i].style.backgroundColor = "white";
-    colSelected.innerHTML = "";
-
-    mouseIsDown = false;
-    game = false;
-  }
-
-}
-// Creating function that will tell the position of cursor
-// PageX and PageY will getting position values and show them in P
-function tellPos(p) {
-  info.innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
-
-}
-addEventListener('mousemove', tellPos, false)
-
-
-
-
-
-
-

@@ -15,7 +15,6 @@ let purple;
 let red;
 let blue;
 let orange;
-
 //*****************************************************//
 // MODIFIED TO ADD EXPECTED COLOUR AS STARTING ELEMENT 
 // NOTE MUST MATCH CLASS IN CSS FILE //
@@ -37,13 +36,14 @@ const startPoints = [
   ["orange", 10, 26],
   ["blue", 5, 32]
 ]
+
 gameStart();
 nextLevelChecker();
 
 function colourSelector(){
   for(let i=0; i < squares.length; i++){
   squares[i].addEventListener("click",() =>{
-   if(squares[i].getAttribute("class")== "startClassgreen"){
+    if(squares[i].getAttribute("class")== "startClassgreen"){
      green = true;
      yellow = false;
      purple = false;
@@ -51,6 +51,7 @@ function colourSelector(){
      blue = false;
      orange = false;
     }
+
     if(squares[i].getAttribute("class")== "startClassyellow"){
       green = false;
       yellow = true;
@@ -58,8 +59,8 @@ function colourSelector(){
       red = false;
       blue = false;
       orange = false;
-      
-     }
+    }
+
      if(squares[i].getAttribute("class") ==  "startClasspurple"){
       green = false;
       yellow = false;
@@ -77,6 +78,7 @@ function colourSelector(){
       blue = false;
       orange = false;
      }
+
      if(squares[i].getAttribute("class")== "startClassblue"){
       green = false;
       yellow = false;
@@ -85,6 +87,7 @@ function colourSelector(){
       blue = true;
       orange = false;
      }
+
      if(squares[i].getAttribute("class")== "startClassorange"){
       green = false;
       yellow = false;
@@ -192,4 +195,3 @@ function nextLevelChecker(){
 btnReset.addEventListener("click", () => {
   location.reload();
 })
-
